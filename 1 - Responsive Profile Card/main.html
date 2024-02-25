@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Coding Lab 1</title>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="card">
+            <div class="profile">
+                <img src="pfp.jpg" alt="pfp couldn't load." class="profile-img">
+            </div>
+            <div class="details-column">
+                <p class="name">Syed Ahad Ali</p>
+                <p class="description">Computer Science - 2025</p>
+                <div class="socials-row">
+                    <a href="https://www.facebook.com/Ahad1Ali2" target="_blank">
+                        <i class='bx bxl-facebook' style="background-color: #4267B2; padding-left: 5px;"></i>
+                    </a>
+                    <a href="https://www.instagram.com/_ahad.ali_/" target="_blank">
+                        <i class='bx bxl-instagram' style="background-color: #E1306C;"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@ahadali3908/featured" target="_blank">
+                        <i class='bx bxl-youtube' style="background-color: #FF0000;"></i>
+                    </a>
+                </div>
+                <div class="buttons-row">
+                    <a href="https://github.com/Kagura-Ahad" class="button" target="_blank">Subscribe</a>
+                    <a href="mailto:sa07753@st.habib.edu.pk" class="button">Message</a>
+                </div>
+                <div class="analytics-row">
+                    <div class="data" id="heart">
+                        <i class="bx bx-heart"></i>
+                        10k
+                    </div>
+                    <div class="data">
+                        <i class="bx bx-message-rounded"></i>
+                        20k
+                    </div>
+                    <div class="data">
+                        <i class="bx bx-share"></i>
+                        12k
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.getElementById("heart").addEventListener("click", function() {
+                var heartIcon = this.querySelector("i");
+                var currentColor = heartIcon.style.color;
+        
+                if (currentColor === "red") {
+                    heartIcon.style.color = "black";
+                } else {
+                    heartIcon.style.color = "red";
+                }
+            });
+        </script>
+        
+    </body>
+</html>
