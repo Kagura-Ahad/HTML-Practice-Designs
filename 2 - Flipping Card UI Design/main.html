@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Flip Card</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+            .flip-card {
+                background-color: transparent;
+                width: 337px;
+                height: 212.5px;
+                perspective: 1000px;
+                border-radius: 22px; /* Add border radius */
+            }
+
+            .flip-card-inner {
+                width: 100%;
+                height: 100%;
+                transition: transform 0.6s;
+                transform-style: preserve-3d;
+                position: relative;
+                border-radius: 22px; /* Add border radius */
+            }
+
+            .flip-card:hover .flip-card-inner {
+                transform: rotateY(180deg);
+            }
+
+            .flip-card-front,
+            .flip-card-back {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                backface-visibility: hidden;
+                border-radius: 22px; /* Add border radius */
+            }
+
+            .flip-card-front {
+                background-color: #bbb;
+                color: black;
+                display: flex;
+                flex-direction: row;
+            }
+
+            .flip-card-back {
+                background-color: #2980b9;
+                color: white;
+                transform: rotateY(180deg);
+                border-radius: 22px; /* Add border radius */
+            }
+            .left-column {
+                width: 70%;
+                display: flex;
+                flex-direction: column;
+                justify-content: start ;
+                margin-top: 0px;
+                margin-bottom: 0px;
+                padding: 15px;
+            }
+            .card-payment-network {
+                display: flex;
+                flex-direction: row;
+                justify-content: start;
+                align-items: center;
+                margin-top: 15px;
+                margin-bottom: 50px;
+            }
+            .card-payment-network p {
+                color: white;
+                font-size: 20px;
+                font-weight: 600;
+                margin: 0px;
+                font-family: Arial, sans-serif;
+                font-weight: 300;
+            }
+
+            .card-number{
+                color: white;
+                font-size: 10px;
+                font-weight: 600;
+                padding: 2px 12px;
+                font-family: Arial, sans-serif;
+                font-weight: 300;
+            }
+
+            .card-group-number{
+                display: flex;
+                flex-direction: row;
+                justify-content: start;
+                align-items: center;
+                padding-left: 8px;
+            }
+            
+            .card-number-group-item{
+                color: white;
+                font-size: 15px;
+                font-weight: 600;
+                padding: 4px;
+                font-family: "Exo 2", sans-serif;
+                font-weight: 300;
+            }
+
+            .card-holder{
+                color: white;
+                font-size: 15px;
+                font-weight: 600;
+                padding: 10px 12px;
+                font-family: Arial, sans-serif;
+                font-weight: 300;
+            }
+            .right-column {
+                width: 30%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                padding: 30px 20px;
+            }
+            .card-valid{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .card-chip img{
+                width: 50px;
+                height: 35px;
+                border-radius: 6px;
+            }
+
+            .Header,
+            .Date {
+                color: white;
+            }
+
+            .flip-card-back {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            .customer-support-text {
+                color: white;
+                font-size: 8px;
+                padding: 12px 20px;
+                font-family: Arial, sans-serif;
+                font-weight: 300;
+                text-align: left;
+            }
+
+            .black-strip {
+                background-color: black;
+                height: 40px;
+                left: 0;
+                right: 0;
+                position: relative;
+            }
+
+            .cvv-strip {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding-left: 30px;
+                padding-top: 20px;
+            }
+
+            .cvv-white-strip {
+                background: repeating-linear-gradient(45deg, white, white 10px, black 10px, black 20px);
+                border-radius: 6px;
+                height: 40px;
+                width: 225px;
+                position: relative;
+            }
+
+            .cvv-number {
+                color: black;
+                background-color: white;
+                font-size: 15px;
+                font-weight: 600;
+                font-family: Arial, sans-serif;
+                font-weight: 300;
+                padding: 2px 4px;
+                border-radius: 2px;
+                margin-left: -2px;
+            }
+
+            .lost-card-text {
+                color: white;
+                font-size: 8px;
+                padding: 5px 20px;
+                font-family: Arial, sans-serif;
+                font-weight: 300;
+                text-align: left;
+                margin-bottom: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <div class="left-column">
+                    <div class="card-payment-network">
+                        <img src="img/mastercard.png" alt="Master Card" width="60px">
+                        <p>Master Card</p>
+                    </div>
+                    <div class="card-number">Card Number</div>
+                    <div class="card-group-number">
+                        <div class="card-number-group-item">1234</div>
+                        <div class="card-number-group-item">5678</div>
+                        <div class="card-number-group-item">9101</div>
+                        <div class="card-number-group-item">1213</div>
+                    </div>
+                    <div class="card-holder">Syed Ahad Ali</div>
+                </div>
+                <div class="right-column">
+                    <div class="card-chip">
+                        <img src="img/chip.png" alt="Chip" width="40" height="40">
+                    </div>
+                    <div class="card-valid">
+                        <div class="Header">Valid Thru</div>
+                        <div class="Date">10/25</div>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card-back">
+                <div class="customer-support-text">
+                    For customer support call +123 456 7890 or email at: mastercard@gmail.com
+                </div>
+                <div class="black-strip"></div>
+                <div class="cvv-strip">
+                    <div class="cvv-white-strip"></div>
+                    <div class="cvv-number">123</div>
+                </div>
+                <div class="lost-card-text">
+                    If lost or stolen, please contact us immediately to prevent fraud. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor cumque ullam vitae architecto similique nihil quaerat itaque, quas deleniti maxime eaque minus illo.
+                </div>
+            </div>
+        </div>
+        </div>
+    </body>
+</html>
